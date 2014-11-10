@@ -4,6 +4,7 @@ class CreateRooms < ActiveRecord::Migration
       t.string :roomnumber
       t.text :roomtype
       t.text :roomdescription
+      t.decimal :roomprice
       t.string :hotelname
 
       t.timestamps

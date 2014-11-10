@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20141107201315) do
     t.string   "roomnumber"
     t.text     "roomtype"
     t.text     "roomdescription"
+    t.decimal  "roomprice"
     t.string   "hotelname"
     t.datetime "created_at"
     t.datetime "updated_at"

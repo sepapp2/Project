@@ -1,12 +1,12 @@
-<h1>Listing rooms</h1>
+<h1>Listing of Rooms</h1>
 
-<table>
+<table class="table table-bordered table-striped table-hover">
   <thead>
     <tr>
-      <th>Roomnumber</th>
-      <th>Roomtype</th>
-      <th>Roomdescription</th>
-      <th>Hotelname</th>
+      <th>Room Number</th>
+      <th>Room Type</th>
+      <th>Room Description</th>
+      <th>Hotel Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +18,20 @@
         <td><%= room.roomtype %></td>
         <td><%= room.roomdescription %></td>
         <td><%= room.hotelname %></td>
-        <td><%= link_to 'Show', room %></td>
-        <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        	<div class="dropdown">
+  				<a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    				Actions
+    				<span class="caret"></span>
+  				</a>
+
+  				<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+  					  <li><%= link_to 'Show', room %></li>
+  					  <li><%= link_to 'Edit', edit_room_path(room) %></li>
+  					  <li><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+ 				 </ul>
+			</div>
+		</td>
       </tr>
     <% end %>
   </tbody>
