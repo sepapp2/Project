@@ -1,0 +1,18 @@
+%p#notice= notice
+%p
+  %strong Room Number:
+  = @room.roomnumber
+%p
+  %strong Room Type:
+  = @room.roomtype
+%p
+  %strong Room Description:
+  = @room.roomdescription
+%p
+  %strong Hotel Name:
+  = @room.hotelname
+= link_to 'Edit', edit_room_path(@room)
+|
+= link_to 'Back', rooms_path
+|
+= link_to 'Home Page', root_path

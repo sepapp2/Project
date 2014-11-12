@@ -1,0 +1,38 @@
+/ Main jumbotron for a primary marketing message or call to action
+.jumbotron
+  .container
+    %h1 Welcome to our Project
+    %p For this project we have chosen to create an application that allows you to view, edit, create and remove hotels and the rooms within.
+    %p
+      %button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+        Learn More About Our Project
+    / Modal
+    #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"data-dismiss" => "modal", :type => "button"}
+              %span{"aria-hidden" => "true"} ×
+              %span.sr-only Close
+            %h4#myModalLabel.modal-title Group 6 Authors and Information
+          .modal-body
+            %ul
+              %li Scott Pappas
+              %li Justin Beard
+          .modal-footer
+            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+.container
+  / Example row of columns
+  .row
+    .col-md-6
+      %h2 View Hotels
+      %p A list of all the hotels in our database
+      %p
+        %a.btn.btn-default{:href => hotels_path, :role => "button"} View Hotel List»
+    .col-md-6
+      %h2 View Rooms
+      %p A list of all the rooms in our database
+      %p
+        %a.btn.btn-default{:href => rooms_path, :role => "button"} View Room List »
+  %hr/
+/ /container

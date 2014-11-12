@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ActiveRecord::Base     
   devise :database_authenticatable, :registerable,
-         :rememberable, :validatable
+         :rememberable, :recoverable, :validatable
 end

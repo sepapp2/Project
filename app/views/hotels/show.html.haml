@@ -1,0 +1,20 @@
+%banner2
+  Information about the #{@hotel.hotelname}  
+%p#notice= notice
+%p
+  %strong Hotel Name:
+  = @hotel.hotelname
+%p
+  %strong Address:
+  = @hotel.address
+%p
+  %strong Website:
+  = @hotel.website
+%p
+  %strong Phone:
+  = @hotel.phone
+= link_to 'Edit', edit_hotel_path(@hotel)
+|
+= link_to 'Back', hotels_path
+|
+= link_to 'Home Page', root_path
