@@ -14,6 +14,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/new
   def new
+    @hotel = Hotel.find_by_id(params[:hotel_id])
     @room = Room.new
   end
 
@@ -28,8 +29,8 @@ class RoomsController < ApplicationController
 
     respond_to do |format|
       if @room.save
-        format.html { redirect_to @room, notice: 'Room was successfully created.' }
-        format.json { render :show, status: :created, location: @room }
+        format.html { redirect_to @hotel, notice: 'Room was successfully created.' }
+        format.json { render :show, status: :created, location: @hotel }
       else
         format.html { render :new }
         format.json { render json: @room.errors, status: :unprocessable_entity }
