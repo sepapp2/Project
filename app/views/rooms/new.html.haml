@@ -1,20 +1,8 @@
-%banner2
-  Add a new Room for #{@hotel.hotelname}
-=form_tag hotel_rooms_path(@hotel) do
-  = label :room,  :roomnumber, 'Room Number'
-  %br/
-  = text_field :room, :roomnumber 
-  %br/ 
-  = label :room,  :roomtype, 'Room Type'
-  %br/
-  = text_field :room, :roomtype 
-  %br/
-  = label :room,  :roomdescription, 'Description'
-  %br/
-  = text_area :room, :roomdescription 
-  %br/
-  = submit_tag 'create room'
+%banner
+  Add A New Room
 
-= link_to 'Back', hotels_path
+= render 'form'
+
+= link_to 'Back', rooms_path
 |
 = link_to 'Home Page', root_path

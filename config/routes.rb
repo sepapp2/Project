@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   
   get 'welcome/index'
 
-  resources :hotels do
-    resources :rooms
-  end
+  resources :rooms
+
+  resources :hotels
   
   
 
