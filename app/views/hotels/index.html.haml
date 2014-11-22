@@ -1,6 +1,6 @@
-%banner
+%banner2
   Listing of Hotels
-
+%p#notice= notice
 %table.table.table-bordered.table-striped.table-hover
   %thead
     %tr
@@ -25,6 +25,7 @@
               %li= link_to 'Show', hotel
               %li= link_to 'Edit', edit_hotel_path(hotel)
               %li= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' }
+              %li= link_to 'Add Room', new_hotel_room_path(hotel)
 %br/
 = link_to 'New Hotel', new_hotel_path
 |

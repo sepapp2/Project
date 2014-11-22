@@ -8,4 +8,3 @@
 
 Hotel.create!(hotelname: 'Hyatt' , address: '1234 East Main Street, Lexington, KY' , website: 'http://hyatt.com', phone: '859-123-4567')
 
-Room.create!(roomnumber: '101' , roomtype: 'suite' , roomdescription: 'Top Floor' , hotelname: 'Hyatt')

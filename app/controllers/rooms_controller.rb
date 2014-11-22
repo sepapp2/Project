@@ -60,7 +60,9 @@ class RoomsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def currency
+      
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
@@ -69,6 +71,6 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:roomnumber, :roomtype, :roomdescription, :hotelname)
+      params.require(:room).permit(:roomnumber, :roomtype, :roomdescription, :roomprice ,:hotelname)
     end
 end

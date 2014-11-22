@@ -4,9 +4,9 @@ class CreateRooms < ActiveRecord::Migration
       t.string :roomnumber
       t.text :roomtype
       t.text :roomdescription
-      t.decimal :roomprice
+      t.decimal :roomprice, :precision => 8, :scale => 2
+      t.references 'hotel'
       t.string :hotelname
-
       t.timestamps
     end
   end

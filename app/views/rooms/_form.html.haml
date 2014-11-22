@@ -8,20 +8,24 @@
         - @room.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :roomnumber
+    = f.label 'Room Number'
     %br/
     = f.text_field :roomnumber
   .field
-    = f.label :roomtype
+    = f.label 'Room Type'
     %br/
-    = f.text_area :roomtype
+    = f.text_field :roomtype
   .field
-    = f.label :roomdescription
+    = f.label 'Room Description'
     %br/
     = f.text_area :roomdescription
   .field
-    = f.label :hotelname
+    = f.label 'Room Price'
     %br/
-    = f.text_field :hotelname
+    = f.text_field :roomprice
+  .field
+    = f.label 'Hotel Name'
+    %br/
+    = f.text_field :hotelname     
   .actions
     = f.submit

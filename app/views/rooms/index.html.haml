@@ -1,12 +1,15 @@
-%banner
+%banner2
   Listing of Rooms
+%p#notice= notice
 %table.table.table-bordered.table-striped.table-hover
   %thead
     %tr
       %th Room Number
       %th Room Type
       %th Room Description
-      %th Hotel Name
+      %th Room Price
+      %th Room ID
+      %th 
       %th{:colspan => "3"}
   %tbody
     - @rooms.each do |room|
@@ -14,7 +17,8 @@
         %td= room.roomnumber
         %td= room.roomtype
         %td= room.roomdescription
-        %td= room.hotelname
+        %td= room.roomprice
+        %td= room.id
         %td
           .dropdown
             %a#dLabel{"aria-expanded" => "false", "aria-haspopup" => "true", "data-target" => "#", "data-toggle" => "dropdown", :href => "http://example.com"}
@@ -25,6 +29,6 @@
               %li= link_to 'Edit', edit_room_path(room)
               %li= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Room', new_room_path
+= link_to 'Add Room', hotels_path
 |
 = link_to 'Home Page', root_path
