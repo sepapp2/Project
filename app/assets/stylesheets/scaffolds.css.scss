@@ -1,5 +1,7 @@
-#btnLogout a:visited {
-  color: #ffffff;
+#btnLogout {
+  &:visited {
+    color: #fff;
+  }
 }
 
 body {
