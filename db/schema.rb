@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141110194842) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "hotels", force: true do |t|
     t.string   "hotelname"
     t.text     "address"
@@ -26,7 +29,8 @@ ActiveRecord::Schema.define(version: 20141110194842) do
     t.string   "roomnumber"
     t.text     "roomtype"
     t.text     "roomdescription"
-    t.decimal  "roomprice"
+    t.decimal  "roomprice",       precision: 8, scale: 2
+    t.integer  "hotel_id"
     t.string   "hotelname"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -40,6 +44,6 @@ ActiveRecord::Schema.define(version: 20141110194842) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
