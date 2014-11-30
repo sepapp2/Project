@@ -1,44 +1,35 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
-
-  # GET /rooms
-  # GET /rooms.json
+  
   def index
-    @rooms = Room.all
+    @rooms = Room.order("hotelname").all
   end
-
-  # GET /rooms/1
-  # GET /rooms/1.json
+  
   def show
   end
-
-  # GET /rooms/new
+  
   def new
+    @hotel = Hotel.find_by_id(params[:hotel_id])
+    @room = @hotel.rooms.build
     @room = Room.new
   end
-
-  # GET /rooms/1/edit
+  
   def edit
+    
   end
 
-  # POST /rooms
-  # POST /rooms.json
   def create
-    @room = Room.new(room_params)
-
-    respond_to do |format|
-      if @room.save
-        format.html { redirect_to @room, notice: 'Room was successfully created.' }
-        format.json { render :show, status: :created, location: @room }
-      else
-        format.html { render :new }
-        format.json { render json: @room.errors, status: :unprocessable_entity }
-      end
+    
+    @room = Room.create(room_params)
+    @room.hotel = @current_hotel
+        
+    if @room.save
+      flash[:notice] = "Room was successfully saved"
+      redirect_to hotels_path
+    else
+      flash[:notice] = "There was an error"
     end
   end
-
-  # PATCH/PUT /rooms/1
-  # PATCH/PUT /rooms/1.json
   def update
     respond_to do |format|
       if @room.update(room_params)
@@ -50,9 +41,7 @@ class RoomsController < ApplicationController
       end
     end
   end
-
-  # DELETE /rooms/1
-  # DELETE /rooms/1.json
+  
   def destroy
     @room.destroy
     respond_to do |format|
@@ -60,17 +49,15 @@ class RoomsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def currency
-      
-  end
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_room
-      @room = Room.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def room_params
-      params.require(:room).permit(:roomnumber, :roomtype, :roomdescription, :roomprice ,:hotelname)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def room_params
+    params.require(:room).permit(:roomnumber, :roomtype, :roomdescription, :roomprice, :hotelname, :hotel_id)
+  end  
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_room
+    @room = Room.find(params[:id])
+  end
 end

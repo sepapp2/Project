@@ -23,5 +23,9 @@
     = f.label 'Room Price'
     %br/
     = f.text_field :roomprice
+  .field
+    = f.text_field :hotel_id, :type => "hidden", :value => "#{@hotel.id}"          
+  .field
+    = f.text_field :hotelname, :type => "hidden" ,:value => "#{@hotel.hotelname}" 
   .actions
     = f.submit

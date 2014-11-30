@@ -1,8 +1,8 @@
 %p#notice= notice
 %banner2
-  Add A New Room
-
-= render 'form'
+  Add A New Room #{@hotel.hotelname}
+  
+= render 'form_new'
 
 = link_to 'Back', hotels_path
 |
